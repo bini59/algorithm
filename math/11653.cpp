@@ -1,6 +1,19 @@
+// 11653 소인수분해
+/*
+
+    범위는 1부터 1천만
+    int 자료형 사용
+
+    2부터 천천히 올라가기
+    
+
+
+*/
+
+
 //쓸거같은 STL 목록
 #include <iostream>
-#include <vector>
+//#include <vector>
 //#include <queue>
 //#include <stack>
 //#include <cmath>
@@ -42,17 +55,7 @@ long long 범위 잘 확인해서 풀기.
 //stack<int> s; // 스택
 
 //for문 간단하게.
-#define FOR(n) for(int i = 0; i < (n); i++)
-
-
-// 벡터 표시기(int)
-void printVector(vector<int> arr){
-	FOR((int)arr.size()){
-		printf("%d ", arr[i]);
-	}
-
-	printf("\n");
-}
+#define FOR(i, n) for(int i = 0; i < (n); i++)
 
 
 int main(){

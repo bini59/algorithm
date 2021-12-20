@@ -32,7 +32,7 @@ index 0은 무시하고 1부터 시작해보기.. 은근 저거때문에 화날�
 꼭 데이터 범위 확인하기!!
 long long 범위 잘 확인해서 풀기.
 */
-//typedef long long ll;
+typedef long long ll;
 
 
 //자주 쓸 데이터들
@@ -42,17 +42,7 @@ long long 범위 잘 확인해서 풀기.
 //stack<int> s; // 스택
 
 //for문 간단하게.
-#define FOR(n) for(int i = 0; i < (n); i++)
-
-
-// 벡터 표시기(int)
-void printVector(vector<int> arr){
-	FOR((int)arr.size()){
-		printf("%d ", arr[i]);
-	}
-
-	printf("\n");
-}
+#define FOR(i, n) for(int i = 0; i < (n); i++)
 
 
 int main(){
@@ -60,6 +50,35 @@ int main(){
 	//cin.tie(NULL); 
 	//ios::sync_with_stdio(false);
 
-	int result = 0;
-	
+
+    
+    ll min, max;
+
+    scanf("%lld %lld", &min, &max);
+
+    vector<bool> number = vector<bool>(max-min+1, true);
+
+
+    for(ll i = 2; i*i <= max; i++){
+        ll tmp = (min/(i*i))*(i*i);
+
+        if(tmp == min)
+            number[0] = false;
+        
+        for(ll j = tmp+(i*i); j <= max; j += (i*i)){
+            number[j-min] = false;
+        }
+    }
+
+
+
+    int result = 0;
+
+    FOR(i, (int)number.size()){
+        if(number[i])
+            result++;
+    }
+
+    printf("%d\n", result);
+    return 0;
 }

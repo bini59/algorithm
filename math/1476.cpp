@@ -60,6 +60,29 @@ int main(){
 	//cin.tie(NULL); 
 	//ios::sync_with_stdio(false);
 
-	int result = 0;
+    int a, b, c;
+
+    int x, y, z;
+
+    scanf("%d%d%d", &x, &y, &z);
+
+    int result = 1;
+    a = 1; b = 1; c = 1;
+
+    while(a != x || b != y || c != z){
+        a++;
+        b++;
+        c++;
+        if(a == 16) 
+            a = 1;
+        if(b == 29)
+            b = 1;
+        if(c == 20)
+            c = 1;
+
+        result++;
+    }
+
+	printf("%d", result);
 	
 }

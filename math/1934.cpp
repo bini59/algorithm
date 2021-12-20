@@ -55,10 +55,59 @@ void printVector(vector<int> arr){
 }
 
 
+// 1934 최소공배수
+
+
+/*
+
+    최소공배수 => 두수를 곱한후 최대공약수로 나눈다.
+
+    최대공약수 => 유클리드호제법
+
+    a > b 이고,
+    a%b => r이라고 할때
+
+    gcd(a, b) = gcd(b, r)
+    r = 0이면, 최대공약수가 b가 된다.
+
+
+    재귀식, 반복식으로 내려가서 r = 0으로 만들어서 최대공약수를 구할 수 있다.
+
+*/
+
+
+int gcd(int a, int b){
+    while(b != 0){
+        int temp = a;
+        a = b;
+        b = temp%b;
+    }
+
+    return a;
+}
+
+
 int main(){
 	// 혹시나 cin, cout을 쓰게 딘다면...
 	//cin.tie(NULL); 
 	//ios::sync_with_stdio(false);
+
+    int n = 0;
+    scanf("%d", &n);
+
+    int a, b;
+
+    for(int i = 0; i < n; i++){
+        scanf("%d %d", &a, &b);
+        if(a < b){
+            int temp = b;
+            b = a;
+            a = temp;
+        }
+
+        int gcdRes = gcd(a, b);
+        printf("%d\n", a*b/gcdRes);
+    }
 
 	int result = 0;
 	

@@ -4,7 +4,7 @@
 //#include <queue>
 //#include <stack>
 //#include <cmath>
-//#include <algorithm>
+#include <algorithm>
 //#include <string>
 
 using namespace std;
@@ -60,6 +60,25 @@ int main(){
 	//cin.tie(NULL); 
 	//ios::sync_with_stdio(false);
 
-	int result = 0;
+    int N;
+    scanf("%d", &N);
+
+    vector<int> arr = vector<int>(N, 0);
+    FOR(N)
+        scanf("%d ", &arr[i]);
+    
+    vector<int> arr_S = vector<int>(N);
+    copy(arr.begin(), arr.end(), arr_S.begin());
+    sort(arr_S.begin(), arr_S.end());
+
+    for(int i = 0; i < N; i++){
+        for(int j = 0; j < N; j++){
+            if(arr[i] == arr_S[j]){
+                printf("%d ", j);
+                arr_S[j] = -1;
+                break;
+            }
+        }
+    }
 	
 }

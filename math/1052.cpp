@@ -42,17 +42,7 @@ long long 범위 잘 확인해서 풀기.
 //stack<int> s; // 스택
 
 //for문 간단하게.
-#define FOR(n) for(int i = 0; i < (n); i++)
-
-
-// 벡터 표시기(int)
-void printVector(vector<int> arr){
-	FOR((int)arr.size()){
-		printf("%d ", arr[i]);
-	}
-
-	printf("\n");
-}
+#define FOR(i, n) for(int i = 0; i < (n); i++)
 
 
 int main(){
@@ -60,6 +50,30 @@ int main(){
 	//cin.tie(NULL); 
 	//ios::sync_with_stdio(false);
 
-	int result = 0;
+    int result = 0;
+
+    int n, k;
+
+    scanf("%d %d", &n, &k);
+
+    for(int i = 1; i <= k; i++){
+        int tmp = 2;
+        while(true){
+            if(tmp > n){
+                if(i == k){
+                    result = tmp-n;
+                    break;
+                }
+                else{
+                    n -= tmp/2;
+                    break;
+                }
+                tmp *= 2;
+            }
+        }
+    }
+
+    printf("%d", result);
+	
 	
 }
