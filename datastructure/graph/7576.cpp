@@ -69,21 +69,24 @@ int main(){
     FOR(m) for(int j = 0; j < n; j++) {
         scanf("%d", &map[i][j]);
         if(map[i][j] == 1){
-            q.push({i, j, 1});
+            q.push({i, j});
         }
-        if(map[i][j]==0){
-            map[i][j] = 987654321;
-        }
+        // if(map[i][j]==0){
+        //     map[i][j] = 987654321;
+        // }
     }
 
     while(!q.empty()){
-        vector<int> temp = q.front(); q.pop();
+        int x = q.front()[0]; 
+        int y = q.front()[1]; 
+        q.pop();
         for(int k = 0; k < 4; k++){
-            vector<int> loc = {_move[k].first+temp[0], _move[k].second+temp[1], temp[2]+1};
-            if(loc[0] < m && loc[0] > -1 && loc[1] < n && loc[1] > -1){
-                if(map[loc[0]][loc[1]] > loc[2]){
-                    q.push(loc);
-                    map[loc[0]][loc[1]] = loc[2];
+            int move_x = _move[k].first+x;
+            int move_y = _move[k].second+y;
+            if(move_x < m && move_x > -1 && move_y < n && move_y > -1){
+                if(map[move_x][move_y] == 0){
+                    q.push({move_x, move_y});
+                    map[move_x][move_y] = map[x][y]+1;
                 }
             }
         }
@@ -93,7 +96,7 @@ int main(){
     int result = 0;
     FOR(m){
         for(int j = 0; j < n; j++){
-            if(map[i][j] == 987654321) check++;
+            if(map[i][j] == 0) check++;
             else result = max(result, map[i][j]);
         }
     }
