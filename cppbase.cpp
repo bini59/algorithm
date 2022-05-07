@@ -45,7 +45,7 @@ long long 범위 잘 확인해서 풀기.
 #define FOR(n) for(int i = 0; i < (n); i++)
 
 
-// 벡터 표시기(int)
+// print Vector<int>
 void printVector(vector<int> arr){
 	FOR((int)arr.size()){
 		printf("%d ", arr[i]);
@@ -54,6 +54,13 @@ void printVector(vector<int> arr){
 	printf("\n");
 }
 
+// print Array<int>
+void printArray(int *arr, int size){
+    for (int i = 0; i < size; i++) {
+        printf("%d ", arr[i]);
+    }
+    printf("\n");
+}
 
 int main(){
 	// 혹시나 cin, cout을 쓰게 딘다면...
