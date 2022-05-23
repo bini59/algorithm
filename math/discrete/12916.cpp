@@ -87,8 +87,8 @@ void multiMatrix(ll (&map)[][100], ll (&map2)[][100], ll n){
 
 int main(){
 	// 혹시나 cin, cout을 쓰게 딘다면...
-	//cin.tie(NULL); 
-	//ios::sync_with_stdio(false);
+	cin.tie(NULL); 
+	ios::sync_with_stdio(false);
 
 	int n, m;
     cin >> n >> m;
@@ -114,9 +114,7 @@ int main(){
     for (int i = 0; i < n; i++){
         for (int j = 0; j < n; j++){
             result = (result + res[i][j]) % MOD;
-            printf("%d ", res[i][j]);
         }
-        printf("\n");
     }
     cout << result;
 }
