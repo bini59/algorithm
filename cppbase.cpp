@@ -62,11 +62,10 @@ void printArray(int *arr, int size){
     printf("\n");
 }
 
+
 int main(){
 	// 혹시나 cin, cout을 쓰게 딘다면...
-	//cin.tie(NULL); 
-	//ios::sync_with_stdio(false);
-
-	int result = 0;
+	cin.tie(NULL); 
+	ios::sync_with_stdio(false);
 	
 }
