@@ -44,24 +44,17 @@ long long 범위 잘 확인해서 풀기.
 //for문 간단하게.
 #define FOR(n) for(int i = 0; i < (n); i++)
 
-
-// print Vector<int>
-void printVector(vector<int> arr){
-	FOR((int)arr.size()){
-		printf("%d ", arr[i]);
-	}
-
-	printf("\n");
+template <typename T>
+ostream &operator<<(ostream &out, vector<T> arr){
+    FOR(arr.size()) out << arr[i] << " ";
+    return out;
 }
 
-// print Array<int>
-void printArray(int *arr, int size){
-    for (int i = 0; i < size; i++) {
-        printf("%d ", arr[i]);
-    }
-    printf("\n");
+template <typename T>
+ostream &operator<<(ostream &out, pair<T *, int>arr){
+    FOR(arr.second) out << arr.first[i] << " ";
+    return out;
 }
-
 
 int main(){
 	// 혹시나 cin, cout을 쓰게 딘다면...
